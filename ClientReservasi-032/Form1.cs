@@ -12,9 +12,15 @@ namespace ClientReservasi_032
 {
     public partial class Form1 : Form
     {
+        ServiceReference1.Service1Client service = new ServiceReference1.Service1Client();
+
         public Form1()
         {
-            ServiceReference1.Service1Client service = new ServiceReference1.Service1Client();
+            InitializeComponent();
+
+            TampilData();
+            btUpdate.Enabled = false;
+            btHapus.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -67,16 +73,6 @@ namespace ClientReservasi_032
         {
             var List = service.Pemesanan1();
             dtPemesanan.DataSource = List;
-        }
-
-        public Form1()
-        {
-            InitializeComponent();
-
-            TampilData();
-            btUpdate.Enabled = false;
-            btHapus.Enabled = false;
-
         }
 
         public void Clear()
